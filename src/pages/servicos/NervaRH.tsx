@@ -11,7 +11,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import videoNervaRH from "../../assets/videos/Nerva_Tech__O_Sistema_Nervoso.mp4";
+import videoNervaRH from "../../assets/videos/NERVA_RH.mp4";
 
 const NervaRH = () => {
   return (
