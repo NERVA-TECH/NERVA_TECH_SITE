@@ -57,7 +57,7 @@ export const services = [
   },
   {
     id: "aluguel",
-    title: "Aluguel de Equipamentos",
+    title: "Lotação de Equipamentos",
     description: "Locação de equipamentos corporativos.",
     icon: Shield,
   },
