@@ -2,20 +2,20 @@ import React from "react";
 
 const metrics = [
   {
-    value: "+60%",
-    label: "Redução de retrabalho",
+    value: "100%",
+    label: "Sistemas em Nuvem (Cloud)",
   },
   {
-    value: "3x",
-    label: "Mais eficiência operacional",
+    value: "+3",
+    label: "Segmentos em Atuação",
   },
   {
-    value: "99%",
-    label: "Confiabilidade dos dados",
+    value: "99.9%",
+    label: "Uptime de Operação",
   },
   {
     value: "24/7",
-    label: "Automação contínua",
+    label: "Suporte e Monitoramento",
   },
 ];
 
@@ -24,27 +24,27 @@ const MetricsSection = () => {
     <section className="relative py-32 bg-[#050508] text-white">
       <div className="container mx-auto px-6 max-w-6xl">
         {/* Cabeçalho */}
-        <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:items-center md:justify-center md:flex">
-            Resultados mensuráveis
+        <div className="mb-20 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Nossa Infraestrutura
           </h2>
-          <p className="text-gray-400 max-w-2xl md:mx-auto text-center">
-            Tecnologia aplicada de forma estratégica gera impacto real,
-            mensurável e sustentável na operação.
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            A NERVA TECH desenvolve ecossistemas digitais escaláveis. Da gestão de RH ao 
+            e-commerce e engenharia, nossa tecnologia é o alicerce para sua expansão.
           </p>
         </div>
 
-        {/* Métricas */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* Grid de Métricas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((metric) => (
             <div
               key={metric.label}
-              className="p-8 rounded-xl bg-[#0C0C12] border border-white/5 text-center"
+              className="p-8 rounded-xl bg-[#0A0A0F] border border-white/5 text-center hover:border-[#00f0ff]/30 transition-all duration-300 group"
             >
-              <div className="text-4xl font-bold text-[#00f0ff] mb-2">
+              <div className="text-4xl font-bold text-[#00f0ff] mb-2 group-hover:scale-110 transition-transform">
                 {metric.value}
               </div>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-400 font-medium">
                 {metric.label}
               </p>
             </div>
