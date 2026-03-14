@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrainCircuit, Menu, X } from "lucide-react";
 
+
 import AreaCliente from "./pages/AreaCliente";
 import ServicesSection from "./components/ServicesSection";
 import NervaRH from "./pages/servicos/NervaRH";
@@ -12,6 +13,7 @@ import IntelligenceFlowSection from "./components/home/IntelligenceFlowSection";
 import MetricsSection from "./components/home/MetricsSection";
 import SectionDivider from "./components/ui/SectionDivider";
 import escopoVideo from "./assets/videos/Nerva_Tech__O_Sistema_Nervoso.mp4";
+import SolicitarDemonstracao from "./pages/SolicitarDemonstracao";
 
 
 
@@ -165,6 +167,7 @@ const Navbar = () => {
 // =======================
 const HomePage = () => {
   const [showScope, setShowScope] = useState(false);
+  const handleVoltar = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <motion.div
@@ -238,6 +241,7 @@ const HomePage = () => {
                 />
               </div>
             </div>
+            
           </motion.section>
         )}
       </AnimatePresence>
@@ -255,6 +259,9 @@ const HomePage = () => {
 
       <SectionDivider />
       <MetricsSection />
+      <section id="demo-section" className="bg-[#050508] pb-24">
+          <SolicitarDemonstracao onVoltar={handleVoltar} />
+      </section>
     </motion.div>
   );
 };
@@ -272,6 +279,7 @@ const App = () => {
           <Route path="/area-cliente" element={<AreaCliente />} />
           <Route path="/servicos/nerva-rh" element={<NervaRH />} />
           <Route path="/servicos/:slug" element={<ServiceTemplate />} />
+          <Route path="/solicitar-demonstracao" element={<SolicitarDemonstracao onVoltar={() => window.history.back()} />} />
         </Routes>
       </AnimatePresence>
     </BrowserRouter>
