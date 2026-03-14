@@ -14,6 +14,7 @@ import MetricsSection from "./components/home/MetricsSection";
 import SectionDivider from "./components/ui/SectionDivider";
 import escopoVideo from "./assets/videos/Nerva_Tech__O_Sistema_Nervoso.mp4";
 import SolicitarDemonstracao from "./pages/SolicitarDemonstracao";
+import logoNerva from "./assets/logo-nerva-transparente.png";
 
 
 
@@ -129,21 +130,42 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#050508]/80 backdrop-blur border-b border-white/5">
-      <div className="container mx-auto px-6 py-6 flex justify-between items-center">
-        <button onClick={() => navigate("/")} className="flex items-center gap-2">
-          <BrainCircuit className="text-[#00f0ff]" />
-          <span className="font-bold text-white">NERVA.TECH</span>
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <button onClick={() => navigate("/")} className="flex items-center gap-3 group">
+          {/* LOGO "N" */}
+          <div className="relative">
+            <img 
+              src={logoNerva} 
+              alt="NERVA Logo" 
+              className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110" 
+            />
+            {/* Brilho sutil atrás da logo */}
+            <div className="absolute inset-0 bg-[#00f0ff]/10 blur-xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+      
+          {/* TEXTOS EMPILHADOS */}
+          <div className="flex flex-col items-start leading-tight">
+            <span className="font-bold text-white text-xl md:text-2xl uppercase tracking-[0.1em]">
+              NERVA<span className="text-[#00f0ff]"> TECH</span>
+            </span>
+            <span className="text-[#00f0ff] text-[10px] md:text-xs font-medium uppercase tracking-[0.3em] mt-0.5">
+              Consultoria de Software
+            </span>
+          </div>
         </button>
 
         <div className="hidden md:flex gap-6">
-          <button
+           <button
             onClick={() => navigate("/servicos/nerva-rh")}
-            className="text-gray-400 hover:text-white"
+            className="relative px-6 py-2 text-xs font-bold uppercase tracking-wider text-[#00f0ff]"
           >
-            Nerva RH
+            <span className="absolute inset-0 rounded-lg border border-[#00f0ff]/40"></span>
+            <span className="absolute inset-0 rounded-lg animate-pulse border border-[#00f0ff]/20"></span>
+            <span className="absolute inset-0 rounded-lg bg-[#00f0ff]/25 opacity-0 hover:opacity-100 transition-opacity"></span>
+            <span className="relative z-10">NERVA RH</span>
           </button>
 
-          <button
+          {/* <button
             onClick={() => navigate("/area-cliente")}
             className="relative px-6 py-2 text-xs font-bold uppercase tracking-wider text-[#00f0ff]"
           >
@@ -151,7 +173,7 @@ const Navbar = () => {
             <span className="absolute inset-0 rounded-lg animate-pulse border border-[#00f0ff]/20"></span>
             <span className="absolute inset-0 rounded-lg bg-[#00f0ff]/25 opacity-0 hover:opacity-100 transition-opacity"></span>
             <span className="relative z-10">Área do Cliente</span>
-          </button>
+          </button> */}
         </div>
 
         <button className="md:hidden" onClick={() => setOpen(!open)}>
