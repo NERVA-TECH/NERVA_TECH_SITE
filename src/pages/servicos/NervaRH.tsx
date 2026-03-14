@@ -11,6 +11,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import { Link } from "react-router-dom"
+
 import videoNervaRH from "../../assets/videos/NERVA_RH.mp4";
 
 const NervaRH = () => {

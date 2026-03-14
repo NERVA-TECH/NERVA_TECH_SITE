@@ -24,20 +24,40 @@ const SolicitarDemonstracao = ({ onVoltar }) => {
     empresa: "",
     cargo: "",
     numeroColaboradores: "",
+    servicoInteresse: "",
     mensagem: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aqui você pode integrar com uma API de backend
-    console.log("Formulário enviado:", formData);
-    setIsSubmitted(true);
-    
-    // Resetar após 3 segundos e voltar à home
-    setTimeout(() => {
-      onVoltar();
-    }, 3000);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const FORMSPREE_ID = "xbdzyakl"; 
+
+  try {
+    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      // Ativa o estado de sucesso que já existe no seu componente
+      setIsSubmitted(true);
+      
+      // Volta para a página anterior após 3 segundos
+      setTimeout(() => {
+        onVoltar();
+      }, 3000);
+    } else {
+      alert("Ocorreu um erro ao enviar. Por favor, tente novamente.");
+    }
+  } catch (error) {
+    console.error("Erro na submissão:", error);
+    alert("Erro de conexão. Verifique a sua internet.");
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -138,7 +158,7 @@ const SolicitarDemonstracao = ({ onVoltar }) => {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              Veja o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7000ff]">Nerva RH</span> em Ação
+              Veja a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7000ff]">Nerva Tech</span> em Ação
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma demonstração personalizada do sistema.
@@ -285,6 +305,31 @@ const SolicitarDemonstracao = ({ onVoltar }) => {
                     <option value="51-200" className="bg-[#050508]">51 a 200</option>
                     <option value="201-500" className="bg-[#050508]">201 a 500</option>
                     <option value="500+" className="bg-[#050508]">Mais de 500</option>
+                  </select>
+                </motion.div>
+                {/* Serviço de Interesse */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.9 }}
+                >
+                  <label className="block text-sm font-medium text-gray-300 mb-2 flex items-center gap-2">
+                    <BrainCircuit className="w-4 h-4 text-[#00f0ff]" />
+                    Solução de Interesse *
+                  </label>
+                  <select
+                    name="servicoInteresse"
+                    required
+                    value={formData.servicoInteresse}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-[#050508] border border-white/10 rounded-lg text-white focus:border-[#00f0ff] focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/20 transition-all"
+                  >
+                    <option value="">Selecione uma solução...</option>
+                    <option value="Nerva RH">Nerva RH (Gestão de Pessoas)</option>
+                    <option value="Arquitetura de Dados">Arquitetura de Dados</option>
+                    <option value="Inteligência Operacional">Inteligência Operacional</option>
+                    <option value="Automação de Processos">Automação de Processos</option>
+                    <option value="Desenvolvimento Sob Medida">Desenvolvimento Sob Medida</option>
                   </select>
                 </motion.div>
               </div>
