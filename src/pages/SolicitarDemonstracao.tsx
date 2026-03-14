@@ -161,7 +161,7 @@ const SolicitarDemonstracao = ({ onVoltar }) => {
               Veja a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7000ff]">Nerva Tech</span> em Ação
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma demonstração personalizada do sistema.
+              Preencha o formulário abaixo e nossa equipe entrará em contato para falar sobre o serviço escolhido.
             </p>
           </motion.div>
 
@@ -350,7 +350,7 @@ const SolicitarDemonstracao = ({ onVoltar }) => {
                   onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-3 bg-[#050508] border border-white/10 rounded-lg text-white placeholder-gray-600 focus:border-[#00f0ff] focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/20 transition-all resize-none"
-                  placeholder="Descreva os principais desafios que sua equipe de RH enfrenta atualmente..."
+                  placeholder="Descreva os principais desafios que sua equipe enfrenta atualmente..."
                 />
               </motion.div>
 
