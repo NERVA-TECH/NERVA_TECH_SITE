@@ -56,7 +56,7 @@ export function Header() {
           href="/automatizar"
           className="hidden md:inline-flex items-center px-5 py-2 bg-foreground text-background font-mono text-xs uppercase tracking-[0.15em] rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
-          Automatizar minha operação
+          Mostre onde trava
         </a>
 
         {/* Mobile hamburger */}
@@ -88,7 +88,7 @@ export function Header() {
             onClick={() => setMobileOpen(false)}
             className="block w-full text-center px-5 py-3 bg-foreground text-background font-mono text-xs uppercase tracking-[0.15em] rounded-full hover:bg-primary hover:text-primary-foreground transition-all"
           >
-            Automatizar minha operação
+            Mostre onde trava
           </a>
         </div>
       )}
