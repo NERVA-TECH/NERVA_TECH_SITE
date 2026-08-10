@@ -5,79 +5,64 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 function ManualProcessAnim() {
   return (
-    <svg viewBox="0 0 120 80" className="w-full h-20" aria-hidden="true">
-      {/* Two boxes with a dot bouncing between them — manual copy/paste */}
-      <rect x="10" y="25" width="35" height="30" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
-      <rect x="75" y="25" width="35" height="30" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
-      {/* Arrow */}
-      <line x1="48" y1="40" x2="72" y2="40" className="stroke-muted-foreground/40" strokeWidth="1" strokeDasharray="3 2" />
-      {/* Bouncing dot */}
+    <svg viewBox="0 0 160 80" className="w-full h-16 md:h-20" aria-hidden="true">
+      <rect x="15" y="20" width="40" height="40" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
+      <rect x="105" y="20" width="40" height="40" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
+      <line x1="58" y1="40" x2="102" y2="40" className="stroke-muted-foreground/30" strokeWidth="1" strokeDasharray="3 2" />
       <circle r="4" className="fill-red-400/80">
-        <animateMotion dur="2s" repeatCount="indefinite" path="M 27 40 L 60 30 L 92 40 L 60 50 Z" />
+        <animateMotion dur="2s" repeatCount="indefinite" path="M 35 40 L 80 30 L 125 40 L 80 50 Z" />
       </circle>
-      {/* Little lines inside boxes = data */}
-      <line x1="16" y1="35" x2="36" y2="35" className="stroke-muted-foreground/30" strokeWidth="1.5" />
-      <line x1="16" y1="40" x2="32" y2="40" className="stroke-muted-foreground/30" strokeWidth="1.5" />
-      <line x1="16" y1="45" x2="38" y2="45" className="stroke-muted-foreground/30" strokeWidth="1.5" />
-      <line x1="81" y1="35" x2="101" y2="35" className="stroke-muted-foreground/30" strokeWidth="1.5" />
-      <line x1="81" y1="40" x2="97" y2="40" className="stroke-muted-foreground/30" strokeWidth="1.5" />
-      <line x1="81" y1="45" x2="103" y2="45" className="stroke-muted-foreground/30" strokeWidth="1.5" />
+      <line x1="22" y1="32" x2="46" y2="32" className="stroke-muted-foreground/25" strokeWidth="1.5" />
+      <line x1="22" y1="38" x2="42" y2="38" className="stroke-muted-foreground/25" strokeWidth="1.5" />
+      <line x1="22" y1="44" x2="48" y2="44" className="stroke-muted-foreground/25" strokeWidth="1.5" />
+      <line x1="112" y1="32" x2="136" y2="32" className="stroke-muted-foreground/25" strokeWidth="1.5" />
+      <line x1="112" y1="38" x2="132" y2="38" className="stroke-muted-foreground/25" strokeWidth="1.5" />
+      <line x1="112" y1="44" x2="138" y2="44" className="stroke-muted-foreground/25" strokeWidth="1.5" />
     </svg>
   );
 }
 
 function DisconnectedAnim() {
   return (
-    <svg viewBox="0 0 120 80" className="w-full h-20" aria-hidden="true">
-      {/* Three nodes trying to connect but failing — broken lines */}
-      <circle cx="25" cy="40" r="12" className="fill-card stroke-border" strokeWidth="1.5" />
-      <circle cx="60" cy="25" r="12" className="fill-card stroke-border" strokeWidth="1.5" />
-      <circle cx="95" cy="45" r="12" className="fill-card stroke-border" strokeWidth="1.5" />
-      {/* Broken connections — dashed with X */}
-      <line x1="37" y1="35" x2="48" y2="28" className="stroke-red-400/60" strokeWidth="1.5" strokeDasharray="3 3" />
-      <line x1="72" y1="30" x2="83" y2="38" className="stroke-red-400/60" strokeWidth="1.5" strokeDasharray="3 3" />
-      {/* Pulsing X marks */}
+    <svg viewBox="0 0 160 80" className="w-full h-16 md:h-20" aria-hidden="true">
+      <circle cx="30" cy="40" r="14" className="fill-card stroke-border" strokeWidth="1.5" />
+      <circle cx="80" cy="28" r="14" className="fill-card stroke-border" strokeWidth="1.5" />
+      <circle cx="130" cy="45" r="14" className="fill-card stroke-border" strokeWidth="1.5" />
+      <line x1="44" y1="35" x2="66" y2="30" className="stroke-red-400/50" strokeWidth="1.5" strokeDasharray="3 3" />
+      <line x1="94" y1="33" x2="116" y2="40" className="stroke-red-400/50" strokeWidth="1.5" strokeDasharray="3 3" />
       <g className="animate-pulse">
-        <line x1="40" y1="28" x2="46" y2="34" className="stroke-red-400" strokeWidth="1.5" />
-        <line x1="46" y1="28" x2="40" y2="34" className="stroke-red-400" strokeWidth="1.5" />
+        <line x1="52" y1="28" x2="58" y2="34" className="stroke-red-400" strokeWidth="1.5" />
+        <line x1="58" y1="28" x2="52" y2="34" className="stroke-red-400" strokeWidth="1.5" />
       </g>
       <g className="animate-pulse" style={{ animationDelay: "0.5s" }}>
-        <line x1="75" y1="31" x2="81" y2="37" className="stroke-red-400" strokeWidth="1.5" />
-        <line x1="81" y1="31" x2="75" y2="37" className="stroke-red-400" strokeWidth="1.5" />
+        <line x1="102" y1="33" x2="108" y2="39" className="stroke-red-400" strokeWidth="1.5" />
+        <line x1="108" y1="33" x2="102" y2="39" className="stroke-red-400" strokeWidth="1.5" />
       </g>
-      {/* Labels */}
-      <text x="25" y="44" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "6px" }}>ERP</text>
-      <text x="60" y="29" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "6px" }}>CRM</text>
-      <text x="95" y="49" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "6px" }}>WMS</text>
+      <text x="30" y="44" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "7px" }}>ERP</text>
+      <text x="80" y="32" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "7px" }}>CRM</text>
+      <text x="130" y="49" textAnchor="middle" className="fill-muted-foreground" style={{ fontSize: "7px" }}>WMS</text>
     </svg>
   );
 }
 
 function SpreadsheetAnim() {
   return (
-    <svg viewBox="0 0 120 80" className="w-full h-20" aria-hidden="true">
-      {/* Spreadsheet with cells flickering — unstable */}
-      <rect x="20" y="15" width="80" height="50" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
-      {/* Grid lines */}
-      <line x1="20" y1="28" x2="100" y2="28" className="stroke-border" strokeWidth="0.5" />
-      <line x1="20" y1="40" x2="100" y2="40" className="stroke-border" strokeWidth="0.5" />
-      <line x1="20" y1="52" x2="100" y2="52" className="stroke-border" strokeWidth="0.5" />
-      <line x1="45" y1="15" x2="45" y2="65" className="stroke-border" strokeWidth="0.5" />
-      <line x1="72" y1="15" x2="72" y2="65" className="stroke-border" strokeWidth="0.5" />
-      {/* Flickering cells — opacity animation */}
-      <rect x="46" y="29" width="25" height="10" className="fill-yellow-400/20">
+    <svg viewBox="0 0 120 70" className="w-full h-14 md:h-16" aria-hidden="true">
+      <rect x="20" y="10" width="80" height="50" rx="4" className="fill-card stroke-border" strokeWidth="1.5" />
+      <line x1="20" y1="23" x2="100" y2="23" className="stroke-border" strokeWidth="0.5" />
+      <line x1="20" y1="35" x2="100" y2="35" className="stroke-border" strokeWidth="0.5" />
+      <line x1="20" y1="47" x2="100" y2="47" className="stroke-border" strokeWidth="0.5" />
+      <line x1="48" y1="10" x2="48" y2="60" className="stroke-border" strokeWidth="0.5" />
+      <line x1="74" y1="10" x2="74" y2="60" className="stroke-border" strokeWidth="0.5" />
+      <rect x="49" y="24" width="24" height="10" className="fill-yellow-400/20">
         <animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite" />
       </rect>
-      <rect x="73" y="41" width="26" height="10" className="fill-red-400/20">
+      <rect x="75" y="36" width="24" height="10" className="fill-red-400/20">
         <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite" />
       </rect>
-      <rect x="21" y="53" width="23" height="10" className="fill-yellow-400/20">
-        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite" />
-      </rect>
-      {/* Warning icon */}
       <g className="animate-pulse">
-        <circle cx="108" cy="18" r="6" className="fill-yellow-400/20" />
-        <text x="108" y="21" textAnchor="middle" className="fill-yellow-400" style={{ fontSize: "8px", fontWeight: "bold" }}>!</text>
+        <circle cx="108" cy="14" r="5" className="fill-yellow-400/20" />
+        <text x="108" y="17" textAnchor="middle" className="fill-yellow-400" style={{ fontSize: "7px", fontWeight: "bold" }}>!</text>
       </g>
     </svg>
   );
@@ -85,43 +70,35 @@ function SpreadsheetAnim() {
 
 function ReworkAnim() {
   return (
-    <svg viewBox="0 0 120 80" className="w-full h-20" aria-hidden="true">
-      {/* Circular loop — data going in circles */}
-      <circle cx="60" cy="40" r="22" fill="none" className="stroke-border" strokeWidth="1.5" strokeDasharray="4 3" />
-      {/* Orbiting dot — infinite loop */}
+    <svg viewBox="0 0 120 70" className="w-full h-14 md:h-16" aria-hidden="true">
+      <circle cx="60" cy="35" r="20" fill="none" className="stroke-border" strokeWidth="1.5" strokeDasharray="4 3" />
       <circle r="4" className="fill-orange-400/80">
-        <animateMotion dur="2.5s" repeatCount="indefinite" path="M 60 18 A 22 22 0 1 1 59.99 18" />
+        <animateMotion dur="2.5s" repeatCount="indefinite" path="M 60 15 A 20 20 0 1 1 59.99 15" />
       </circle>
-      {/* Entry arrow that goes nowhere */}
-      <line x1="10" y1="40" x2="35" y2="40" className="stroke-muted-foreground/40" strokeWidth="1.5" />
-      <polygon points="33,37 38,40 33,43" className="fill-muted-foreground/40" />
-      {/* Loop symbol */}
-      <text x="60" y="44" textAnchor="middle" className="fill-muted-foreground/60 font-mono" style={{ fontSize: "8px" }}>∞</text>
+      <line x1="15" y1="35" x2="37" y2="35" className="stroke-muted-foreground/40" strokeWidth="1.5" />
+      <polygon points="35,32 40,35 35,38" className="fill-muted-foreground/40" />
+      <text x="60" y="39" textAnchor="middle" className="fill-muted-foreground/50 font-mono" style={{ fontSize: "9px" }}>∞</text>
     </svg>
   );
 }
 
 function VisibilityAnim() {
   return (
-    <svg viewBox="0 0 120 80" className="w-full h-20" aria-hidden="true">
-      {/* Eye that keeps blinking/closing — can't see */}
-      <ellipse cx="60" cy="40" rx="25" ry="16" fill="none" className="stroke-muted-foreground/40" strokeWidth="1.5" />
-      {/* Eyelid closing animation */}
-      <ellipse cx="60" cy="40" rx="25" ry="16" className="fill-background">
+    <svg viewBox="0 0 160 70" className="w-full h-14 md:h-16" aria-hidden="true">
+      <ellipse cx="80" cy="35" rx="28" ry="16" fill="none" className="stroke-muted-foreground/30" strokeWidth="1.5" />
+      <ellipse cx="80" cy="35" rx="28" ry="16" className="fill-background">
         <animate attributeName="ry" values="0;16;16;0" dur="3s" repeatCount="indefinite" />
       </ellipse>
-      {/* Pupil */}
-      <circle cx="60" cy="40" r="6" className="fill-muted-foreground/30">
+      <circle cx="80" cy="35" r="6" className="fill-muted-foreground/30">
         <animate attributeName="opacity" values="1;1;0;0" dur="3s" repeatCount="indefinite" />
       </circle>
-      <circle cx="60" cy="40" r="3" className="fill-muted-foreground/50">
+      <circle cx="80" cy="35" r="3" className="fill-muted-foreground/50">
         <animate attributeName="opacity" values="1;1;0;0" dur="3s" repeatCount="indefinite" />
       </circle>
-      {/* Alert that appears when eye closes */}
       <g>
         <animate attributeName="opacity" values="0;0;1;1" dur="3s" repeatCount="indefinite" />
-        <circle cx="95" cy="20" r="7" className="fill-red-400/20" />
-        <text x="95" y="23" textAnchor="middle" className="fill-red-400" style={{ fontSize: "9px", fontWeight: "bold" }}>!</text>
+        <circle cx="120" cy="15" r="7" className="fill-red-400/15" />
+        <text x="120" y="18" textAnchor="middle" className="fill-red-400" style={{ fontSize: "9px", fontWeight: "bold" }}>!</text>
       </g>
     </svg>
   );
@@ -172,21 +149,62 @@ export function ProblemsSection() {
         </p>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {problems.map((problem, index) => (
-          <ScrollReveal key={problem.id} delay={index * 120}>
-            <div className="group p-6 border border-border rounded-lg hover:border-primary/50 transition-colors duration-300 bg-card/30">
-              {/* Animated illustration */}
-              <div className="mb-5 opacity-70 group-hover:opacity-100 transition-opacity">
-                <problem.Anim />
-              </div>
-
-              {/* Text */}
-              <h3 className="text-xl text-foreground mb-2 font-sans font-medium">{problem.title}</h3>
-              <p className="text-sm text-muted-foreground font-sans leading-relaxed">{problem.description}</p>
+      {/* Asymmetric editorial grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+        {/* Card 1 — Large (7 cols) */}
+        <ScrollReveal delay={0} className="md:col-span-7">
+          <div className="group h-full p-8 md:p-10 border border-border rounded-xl hover:border-primary/50 transition-colors duration-300 bg-card/40">
+            <div className="mb-6 opacity-70 group-hover:opacity-100 transition-opacity">
+              <ManualProcessAnim />
             </div>
-          </ScrollReveal>
-        ))}
+            <h3 className="text-2xl md:text-3xl text-foreground mb-3">{problems[0].title}</h3>
+            <p className="text-base text-muted-foreground font-sans max-w-md">{problems[0].description}</p>
+          </div>
+        </ScrollReveal>
+
+        {/* Card 2 — Medium (5 cols) */}
+        <ScrollReveal delay={100} className="md:col-span-5">
+          <div className="group h-full p-8 border border-border rounded-xl hover:border-primary/50 transition-colors duration-300 bg-card/40">
+            <div className="mb-5 opacity-70 group-hover:opacity-100 transition-opacity">
+              <DisconnectedAnim />
+            </div>
+            <h3 className="text-xl md:text-2xl text-foreground mb-2">{problems[1].title}</h3>
+            <p className="text-sm text-muted-foreground font-sans">{problems[1].description}</p>
+          </div>
+        </ScrollReveal>
+
+        {/* Card 3 — Small (4 cols) */}
+        <ScrollReveal delay={200} className="md:col-span-4">
+          <div className="group h-full p-6 border border-border rounded-xl hover:border-primary/50 transition-colors duration-300 bg-card/40">
+            <div className="mb-4 opacity-70 group-hover:opacity-100 transition-opacity">
+              <SpreadsheetAnim />
+            </div>
+            <h3 className="text-lg text-foreground mb-2">{problems[2].title}</h3>
+            <p className="text-sm text-muted-foreground font-sans">{problems[2].description}</p>
+          </div>
+        </ScrollReveal>
+
+        {/* Card 4 — Small (4 cols) */}
+        <ScrollReveal delay={300} className="md:col-span-4">
+          <div className="group h-full p-6 border border-border rounded-xl hover:border-primary/50 transition-colors duration-300 bg-card/40">
+            <div className="mb-4 opacity-70 group-hover:opacity-100 transition-opacity">
+              <ReworkAnim />
+            </div>
+            <h3 className="text-lg text-foreground mb-2">{problems[3].title}</h3>
+            <p className="text-sm text-muted-foreground font-sans">{problems[3].description}</p>
+          </div>
+        </ScrollReveal>
+
+        {/* Card 5 — Small (4 cols) */}
+        <ScrollReveal delay={400} className="md:col-span-4">
+          <div className="group h-full p-6 border border-border rounded-xl hover:border-primary/50 transition-colors duration-300 bg-card/40">
+            <div className="mb-4 opacity-70 group-hover:opacity-100 transition-opacity">
+              <VisibilityAnim />
+            </div>
+            <h3 className="text-lg text-foreground mb-2">{problems[4].title}</h3>
+            <p className="text-sm text-muted-foreground font-sans">{problems[4].description}</p>
+          </div>
+        </ScrollReveal>
       </div>
     </SectionContainer>
   );
