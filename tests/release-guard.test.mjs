@@ -1,0 +1,5 @@
+import test from "node:test";import assert from "node:assert/strict";import {readFileSync} from "node:fs";
+const privacy=readFileSync("src/design/privacyContent.ts","utf8");const generic=readFileSync("src/pages/premium/Generic.tsx","utf8");const contact=readFileSync("src/pages/premium/Contact.tsx","utf8");const shell=readFileSync("src/components/premium/Shell.tsx","utf8");const css=readFileSync("src/premium.css","utf8");
+test("privacy covers required disclosures",()=>{for(const x of ["Formspree","Retenção","direitos","internacionais","Cookies","admin@nervatechapp.com"])assert.match(privacy,new RegExp(x,"i"));assert.doesNotMatch(generic,/Documento sujeito à revisão jurídica/)});
+test("commercial links and form provider preserved",()=>{for(const x of ["5592984836620","5592994799615","linkedin.com/in/nervatech"])assert.ok(shell.includes(x));assert.match(contact,/formspree.io\/f\/xaewejjd/);assert.match(contact,/name="servico"/);assert.doesNotMatch(contact,/name="consentimento"/)});
+test("reduced motion is supported",()=>assert.match(css,/prefers-reduced-motion:reduce/));

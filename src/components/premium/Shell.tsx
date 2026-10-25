@@ -6,7 +6,7 @@ import {Brand} from "./Brand";
 import {navigation,solutions} from "@/design/siteData";
 export function Shell(){
  const [opened,setOpened]=useState(false);const location=useLocation();
- useEffect(()=>{setOpened(false);window.scrollTo({top:0,behavior:"instant"})},[location.pathname]);
+ useEffect(()=>{setOpened(false);if(typeof window!=="undefined")window.scrollTo({top:0,behavior:"auto"})},[location.pathname]);
  return <div className="n-app"><a className="n-skip" href="#main">Pular para o conteúdo</a>
  <header className="n-header"><div className="n-container n-nav"><Link to="/" aria-label="Nerva Tech — início"><Brand/></Link><nav className={opened?"n-navlinks open":"n-navlinks"} aria-label="Navegação principal">{navigation.map(n=><NavLink key={n.href} to={n.href} className={({isActive})=>isActive?"active":""}>{n.label}</NavLink>)}<Link to="/contato" className="n-navmobile">Contato</Link></nav><div className="n-navright"><Link to="/contato" className="n-button n-button-small">Fale com um especialista <ArrowUpRight size={14}/></Link><button className="n-menu" aria-label={opened?"Fechar menu":"Abrir menu"} aria-expanded={opened} onClick={()=>setOpened(!opened)}>{opened?<X/>:<Menu/>}</button></div></div></header>
  <main id="main"><Outlet/></main>

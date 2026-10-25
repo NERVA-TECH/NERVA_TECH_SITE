@@ -127,3 +127,19 @@
 .n-footer-grid{grid-template-columns:1.7fr repeat(4,minmax(0,1fr));gap:28px}.n-footer-legal{display:flex;flex-direction:column;gap:13px;font-size:12px}.n-footer-legal strong{color:#c9a15b;margin-bottom:5px}.n-footer a{overflow-wrap:anywhere}
 @media(max-width:980px){.n-reading-layout,.n-privacy-body{grid-template-columns:1fr;gap:30px}.n-reading-layout aside,.n-privacy-body aside{position:static}.n-footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.n-inner-hero{padding:60px 0}.n-inner-hero h1{overflow-wrap:break-word}.n-inner-visual{min-width:0}.n-editorial-art{min-height:280px;padding:20px}.n-page-content .n-info-card{min-height:auto}.n-privacy-body{padding-top:35px;padding-bottom:65px}.n-privacy-body aside{gap:10px}.n-reading-layout{padding-top:40px;padding-bottom:50px}.n-reading-layout h2{font-size:23px}.n-reading-layout p{font-size:16px}.n-footer-grid{gap:30px}.n-contact-form-wrap{padding:20px}.n-form :is(input,textarea,select){font-size:16px}.n-form label{line-height:1.5}.n-contact-detail a{overflow-wrap:anywhere}}
+
+/* Motion enhancement: optional, non-blocking, fully visible without JavaScript */
+@media(prefers-reduced-motion:no-preference){
+.n-hero-v2 .n-hero-copy h1{animation:nerva-arrive .8s cubic-bezier(.2,.7,.2,1) both}
+.n-hero-v2 .n-hero-copy>p{animation:nerva-arrive .8s .12s cubic-bezier(.2,.7,.2,1) both}
+.n-hero-v2 .n-actions{animation:nerva-arrive .8s .2s cubic-bezier(.2,.7,.2,1) both}
+.n-studio-screen{animation:nerva-screen .95s cubic-bezier(.2,.7,.2,1) both}
+.n-float-code,.n-float-flow{transition:filter .3s ease,box-shadow .3s ease}
+.n-studio:hover .n-float{filter:brightness(1.08)}
+.n-diagram-node{transition:border-color .25s ease,box-shadow .25s ease}
+.n-diagram-node:hover{border-color:#c9a15b;box-shadow:0 0 16px #c9a15b1c}
+.n-button:active{transform:translateY(0) scale(.99)}
+@keyframes nerva-arrive{from{transform:translateY(13px);opacity:.15}to{transform:translateY(0);opacity:1}}
+@keyframes nerva-screen{from{opacity:.3;filter:blur(5px)}to{opacity:1;filter:blur(0)}}
+}
+@media(prefers-reduced-motion:reduce){.n-studio-screen,.n-hero-v2 .n-hero-copy h1,.n-hero-v2 .n-hero-copy>p,.n-hero-v2 .n-actions{animation:none!important}.n-diagram-node{transition:none!important}}

@@ -25,3 +25,11 @@ Run npm ci, npm run lint, npm run typecheck, npm run build, npm test. Inspect th
 ## Editorial / legal blockers
 
 Eight articles are drafts without claimed dates or bylines; editorial authorization required before launch. The privacy notice is preliminary and requires legal review.
+
+## Release audit — privacy and motion
+
+Privacy information was based on observable source code and official ANPD guidance (https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes and https://www.gov.br/anpd/pt-br/acesso-a-informacao/aviso-de-privacidade) plus Formspree docs https://help.formspree.io/articles/building-your-form/building-an-html-form/ . Formspree states that submissions are stored in the account and can be forwarded to configured recipient emails. Actual retention, integrations, recipients and overseas processing for **this account** are not verified. The public interface does not claim legal certification. The privacy statement intentionally avoids invented controller details and retention periods.
+
+BLOCKERS BEFORE PRODUCTION: Confirm legal operator identity, applicable legal bases, Formspree plan/recipient settings, retention/deletion practices, privacy operations/security measures, international transfer mechanism, canonical hostname, and obtain a competent privacy/legal review of the final public text. Confirm legacy forms' own privacy notices. Maintain GA4 disabled until consent and IDs approved.
+
+Motion uses CSS on existing elements, does not hide the SSR HTML before hydration, and is disabled for reduced-motion users. No scroll interception or perpetual animations are added.
