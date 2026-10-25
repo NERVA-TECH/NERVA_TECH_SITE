@@ -24,7 +24,7 @@ jobs:
         run: npm run lint
       - name: TypeScript
         run: npx tsc --noEmit -p tsconfig.app.json
-      - name: Automated tests
-        run: npm run test
-      - name: Production build
+      - name: Production build and static HTML generation
         run: npm run build
+      - name: Static HTML metadata, routes and sitemap tests
+        run: npm run test
