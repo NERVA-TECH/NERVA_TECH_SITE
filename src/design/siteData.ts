@@ -28,9 +28,9 @@ export const articles = [
     "title": "Integração entre ERP e e-commerce: cuidados essenciais",
     "summary": "Veja como mapear pedidos, estoque, clientes e falhas de sincronização antes de conectar sistemas.",
     "body": [
-      "Uma integração entre ERP e e-commerce começa pela identificação da origem confiável de cada informação. É importante estabelecer onde surgem pedidos, quais dados são necessários para faturamento e qual sistema administra disponibilidade de estoque.",
-      "Também é necessário especificar quando enviar atualizações, como reconhecer eventos repetidos e o que fazer quando o ERP estiver indisponível. Webhooks, filas e APIs podem ser combinados conforme o contexto técnico.",
-      "Antes da implantação, valide pedidos cancelados, alterações de endereço, estornos e divergências de catálogo. Registre logs técnicos que facilitem correções sem expor dados sensíveis."
+      "Defina a origem de cada campo: o e-commerce geralmente registra o pedido, enquanto o ERP pode controlar documentos fiscais e estoque. Registre identificadores correlacionados para evitar a criação duplicada de pedidos em reenvios.",
+      "Exemplo: ao receber um webhook de pedido pago, valide assinatura, identificador e situação; envie ao ERP de forma idempotente; atualize o status apenas depois da confirmação. Uma fila com reprocessamento controlado ajuda quando o ERP fica indisponível.",
+      "Teste cancelamentos, split de pagamentos, kits, diferentes unidades de medida e divergências de estoque. Monitore eventos que falharam e defina um caminho de intervenção manual antes de liberar a integração."
     ]
   },
   {
@@ -39,9 +39,9 @@ export const articles = [
     "title": "Como automatizar processos administrativos com segurança",
     "summary": "Identifique tarefas repetitivas e estabeleça controles antes de automatizar aprovações e registros.",
     "body": [
-      "Um bom ponto de partida é desenhar o processo atual: gatilhos, responsáveis, regras de aprovação, entradas e resultados esperados.",
-      "Tarefas padronizadas, como conferência de cadastros ou avisos de vencimento, costumam permitir automação gradual. Etapas que envolvem julgamento precisam de revisão humana quando apropriado.",
-      "Inclua tratamento de exceções, controle de permissões e rastreabilidade desde o início. A automação precisa tornar a operação mais confiável, não apenas mais rápida."
+      "Comece por um inventário: atividade, frequência, tempo gasto, decisões exigidas e pessoas responsáveis. Desenhe estados como solicitado, em análise, aprovado e rejeitado para tornar o fluxo verificável.",
+      "Exemplo: uma solicitação de compra pode exigir aprovação conforme categoria e valor, registrar evidência da decisão e notificar a equipe responsável. Não automatize a aprovação quando a política exigir avaliação humana.",
+      "Faça testes com solicitações incompletas, regras conflitantes, permissões distintas e indisponibilidade dos sistemas. Estabeleça como reprocessar a tarefa e quem recebe alertas quando a automação não conseguir concluir."
     ]
   },
   {
@@ -50,9 +50,9 @@ export const articles = [
     "title": "Quando uma empresa precisa de software sob medida?",
     "summary": "Critérios práticos para comparar ferramentas prontas, integrações e desenvolvimento personalizado.",
     "body": [
-      "Software sob medida pode ser indicado quando processos centrais são específicos demais para ferramentas genéricas e adaptações sucessivas prejudicam a operação.",
-      "Avalie primeiro se uma solução existente atende às necessidades com configuração ou integração. Compare custo total, manutenção, segurança, propriedade dos dados e capacidade de evolução.",
-      "Se a construção for necessária, inicie com requisitos claros, etapas pequenas de entrega e critérios de aceitação verificáveis."
+      "Compare três caminhos antes de construir: configurar uma plataforma pronta, integrar ferramentas existentes ou desenvolver um produto específico. Uma matriz simples pode considerar aderência funcional, manutenção, segurança e dependência de fornecedores.",
+      "Exemplo: se uma equipe precisa combinar regras comerciais exclusivas com três ERPs diferentes, pode ser mais sustentável desenvolver uma camada de integração do que modificar cada ferramenta separadamente.",
+      "Defina um escopo inicial pequeno, critérios de aceitação, expectativas de suporte, observabilidade e responsabilidades sobre acesso aos dados. O custo relevante inclui evolução e operação, não apenas a primeira entrega."
     ]
   },
   {
@@ -61,9 +61,9 @@ export const articles = [
     "title": "Como integrar sistemas por APIs: fundamentos e decisões",
     "summary": "Autenticação, contratos de dados, versionamento e tratamento de falhas em integrações empresariais.",
     "body": [
-      "A API deve possuir contratos definidos: campos esperados, formato das respostas, códigos de erro, autenticação e limites de uso.",
-      "Planeje idempotência para operações repetidas, política de tentativas com intervalos e observabilidade que ajude a diagnosticar falhas sem registrar segredos.",
-      "Versionamento, testes de contrato e documentação reduzem o risco de mudanças em uma aplicação quebrarem os sistemas conectados."
+      "Documente o contrato: endpoints, autenticação, payloads, paginação, limites, códigos HTTP e versionamento. Considere o princípio do menor privilégio para tokens e chaves de acesso.",
+      "Exemplo: numa sincronização de clientes, use um identificador de origem, implemente tratamento para requisições duplicadas e registre correlação técnica das tentativas. Para erros temporários, aplique novas tentativas com espera progressiva.",
+      "Teste erros 401, 429 e 5xx, alterações de contrato e indisponibilidade prolongada. Armazene segredos fora do repositório e evite dados pessoais em logs técnicos e métricas."
     ]
   },
   {
@@ -72,9 +72,9 @@ export const articles = [
     "title": "Automação de pedidos e processos comerciais",
     "summary": "Do recebimento do pedido à comunicação entre vendas, financeiro e logística.",
     "body": [
-      "Mapeie a jornada de pedidos e as responsabilidades de cada sistema, incluindo aprovação, pagamento, separação, emissão e atendimento.",
-      "Uma automação pode validar dados obrigatórios, encaminhar atualizações e registrar exceções, desde que preserve as regras comerciais e fiscais aplicáveis.",
-      "Comece validando fluxos de cancelamento, duplicidade e divergências de estoque, não apenas o caminho de sucesso."
+      "Trace os estados do pedido antes de automatizar: recebido, validado, pago, faturado, enviado, cancelado e devolvido. Cada transição deve ter regras, origem de verdade e responsável.",
+      "Exemplo: pagamento confirmado aciona conferência de estoque; se houver divergência, o pedido entra em análise, sem ser enviado automaticamente à expedição. Emissões fiscais e cancelamentos exigem cuidado com integrações e requisitos legais.",
+      "Valide pedidos com múltiplos itens, alterações após pagamento, reembolso parcial e eventos repetidos. A trilha de auditoria deve permitir descobrir por que um pedido mudou de estado."
     ]
   },
   {
@@ -83,9 +83,9 @@ export const articles = [
     "title": "Dashboards empresariais: indicadores que ajudam a decidir",
     "summary": "Como escolher métricas, organizar fontes e evitar painéis visualmente bonitos sem utilidade.",
     "body": [
-      "Antes de desenhar um dashboard, defina qual decisão o painel pretende apoiar e quem utilizará cada indicador.",
-      "Documente cálculo, frequência de atualização, fonte e responsáveis. Informações de sistemas diferentes precisam de regras de conciliação para evitar números conflitantes.",
-      "Organize os indicadores por importância e destaque exceções úteis. Um painel claro prioriza a ação e a interpretação correta."
+      "Comece pela pergunta de negócio: quais decisões o time toma diariamente, semanalmente ou mensalmente? Só depois selecione indicadores e visualizações adequados.",
+      "Exemplo: um painel de pedidos pode mostrar backlog, prazo de processamento e exceções abertas; cada indicador precisa de definição, janela de tempo e responsável pela fonte de dados.",
+      "Valide conciliações, fuso horário e diferenças entre valores brutos e líquidos. Evite painéis lotados: priorize indicadores acionáveis e inclua detalhes suficientes para investigar anomalias."
     ]
   },
   {
@@ -94,9 +94,9 @@ export const articles = [
     "title": "Como reduzir retrabalho com automações",
     "summary": "Um roteiro para identificar dados duplicados, transferências manuais e pontos de inconsistência.",
     "body": [
-      "Retrabalho costuma surgir quando uma mesma informação é digitada em múltiplos sistemas ou quando não existe clareza sobre quem atualiza determinado registro.",
-      "Identifique as etapas repetidas, suas causas e consequências antes de escolher tecnologias. Integrações podem eliminar cópias manuais, enquanto validações reduzem erros na origem.",
-      "Meça o processo de forma responsável, acompanhe exceções e revise regras com os usuários após a implantação."
+      "Observe onde um colaborador copia dados de uma tela para outra, repete validações ou corrige divergências recorrentes. Identifique se a causa é falta de integração, regras inconsistentes ou interface inadequada.",
+      "Exemplo: um cadastro aprovado pode alimentar CRM e ERP por integração, em vez de ser digitado novamente. Defina quem pode alterar cada campo e como tratar atualizações concorrentes.",
+      "Monitore duplicidades, falhas de sincronização e exceções sem depender apenas de indicadores agregados. Converse com os usuários após a implantação para identificar novos pontos de atrito."
     ]
   },
   {
@@ -105,9 +105,9 @@ export const articles = [
     "title": "Como identificar processos candidatos à automação",
     "summary": "Um método para priorizar oportunidades de automação pela previsibilidade e pelo risco.",
     "body": [
-      "Liste atividades frequentes que dependem de regras explícitas, como triagem, notificações, conciliações e geração de relatórios.",
-      "Analise a estabilidade do processo, a qualidade das entradas, as exceções e o impacto de uma falha. Processos instáveis podem precisar de padronização antes de automação.",
-      "Escolha um caso inicial de escopo controlado, defina resultados esperados e valide com quem executa a atividade."
+      "Priorize usando critérios simples: repetição, previsibilidade, qualidade dos dados, impacto em caso de erro e dificuldade de integração. Dê atenção especial às exceções, não apenas ao fluxo esperado.",
+      "Exemplo: notificações automáticas sobre documentos prestes a vencer podem ser um primeiro caso; decisões disciplinares ou financeiras sensíveis exigem revisão humana e controles específicos.",
+      "Implemente um piloto mensurável com critérios de aceitação: entradas válidas, tratamento de exceções, responsáveis por alertas e opção de intervenção manual. Amplie somente após confirmar que o processo está estável."
     ]
   }
 ];
