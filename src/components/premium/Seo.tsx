@@ -1,0 +1,5 @@
+
+import {useEffect} from "react";
+import {useLocation} from "react-router-dom";
+import {pages,articles} from "@/design/siteData";
+export function Seo(){const {pathname}=useLocation();useEffect(()=>{const a=articles.find(x=>pathname==="/conteudos/"+x.slug);const p=pages[pathname];const title=pathname==="/"? "Nerva Tech | Software, integrações e automações":a?a.title+" | Nerva Tech":p?(p.title+" "+(p.emphasis||"")).trim()+" | Nerva Tech":pathname==="/contato"?"Contato | Nerva Tech":pathname==="/conteudos"?"Conteúdos | Nerva Tech":"Nerva Tech";const desc=a?.summary||p?.intro||"Soluções de software sob medida, integrações e automações para operações reais.";document.title=title;const meta=(attr:string,key:string,value:string)=>{let node=document.head.querySelector('meta['+attr+'="'+key+'"]') as HTMLMetaElement|null;if(!node){node=document.createElement("meta");node.setAttribute(attr,key);document.head.appendChild(node)}node.content=value};meta("name","description",desc);meta("property","og:title",title);meta("property","og:description",desc);meta("property","og:type",a?"article":"website");meta("name","twitter:card","summary");},[pathname]);return null}
