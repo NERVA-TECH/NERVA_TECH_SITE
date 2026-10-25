@@ -1,0 +1,32 @@
+name: Quality checks
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [feature/nerva-premium-redesign]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install reproducibly
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: TypeScript
+        run: npx tsc --noEmit -p tsconfig.app.json
+      - name: Production build and static HTML generation
+        run: npm run build
+      - name: Static HTML metadata, routes and sitemap tests
+        run: npm run test
+      - name: Verify privacy copy is factual and link endpoints remain present
+        run: node --test tests/release-guard.test.mjs

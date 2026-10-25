@@ -1,0 +1,2 @@
+
+export function Brand({inverse=false}:{inverse?:boolean}) {return <span className={"n-brand"+(inverse?" inverse":"")} aria-label="Nerva Tech"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2 35 10.5v18L20 37 5 28.5v-18L20 2Z" fill="none" stroke="currentColor" strokeWidth="2.8"/><path d="M12 26V13l16 14V14M12 13l16 14M20 7v9" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/></svg><span>NERVA</span></span>}
