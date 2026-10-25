@@ -25,7 +25,8 @@ jobs:
       - name: Capture desktop and mobile
         run: |
           mkdir -p screenshots
-          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,900" --full-page --wait-for-timeout 1500 http://127.0.0.1:4173/ screenshots/nerva-home-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,900" --full-page --wait-for-timeout 1500 http://127.0.0.1:4173/ screenshots/nerva-home-1440x900.png
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1920,1080" --full-page --wait-for-timeout 1500 http://127.0.0.1:4173/ screenshots/nerva-home-1920x1080.png
           npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page --wait-for-timeout 1500 http://127.0.0.1:4173/ screenshots/nerva-home-mobile.png
       - uses: actions/upload-artifact@v4
         with:
